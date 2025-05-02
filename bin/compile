@@ -14,6 +14,7 @@ nginx_archive_url="https://heroku-buildpack-static.s3.amazonaws.com/heroku-20/ng
 mkdir -p $build_dir/bin
 echo "-----> Downloading Nginx..."
 curl -sSf --retry 3 --connect-timeout 3 "${nginx_archive_url}" | tar -xzC "${build_dir}/bin"
+echo "-----> Download of Nginx finished"
 nginx_version=$("${build_dir}/bin/nginx" -v |& cut -d '/' -f 2-)
 cp -a $bp_dir/scripts/{boot,config} -t $build_dir/bin/
 echo "-----> Installed nginx ${nginx_version} to /app/bin"
