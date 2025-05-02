@@ -16,10 +16,10 @@ echo "-----> Downloading Nginx..."
 curl -sSf --retry 3 --connect-timeout 3 "${nginx_archive_url}" | tar -xzC "${build_dir}/bin"
 echo "-----> Download of Nginx finished"
 echo "-----> build_dir ${build_dir}"
-nginx_version=$("${build_dir}/bin/nginx" -v |& cut -d '/' -f 2-)
-echo "-----> nginx_version ${nginx_version}"
+#nginx_version=$("${build_dir}/bin/nginx" -v |& cut -d '/' -f 2-)
+#echo "-----> nginx_version ${nginx_version}"
 cp -a $bp_dir/scripts/{boot,config} -t $build_dir/bin/
-echo "-----> Installed nginx ${nginx_version} to /app/bin"
+#echo "-----> Installed nginx ${nginx_version} to /app/bin"
 
 mkdir -p $build_dir/config
 cp $bp_dir/scripts/config/templates/mime.types $build_dir/config
